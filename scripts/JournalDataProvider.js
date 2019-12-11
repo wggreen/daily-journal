@@ -8,16 +8,16 @@
 
  let entries = []
 
-//  export const saveEntry = entry => {    
-//     fetch('http://localhost:8000/notes', {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(entry)
-//     })
-//     .then(getEntries)
-// }
+ export const saveEntry = entry => {    
+    fetch('http://localhost:3000/entries', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(entry)
+    })
+    .then(getEntries)
+}
 
  export const getEntries = () => {
     return fetch("http://localhost:3000/entries") // Fetch from the API

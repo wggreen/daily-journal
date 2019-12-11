@@ -1,22 +1,32 @@
 {
-    "entries": [
-        {
-            "date": "11/21/2025",
-            "concept": "HTML, Javascript, Git",
-            "entry": "Presented first group project. Continued to practice github workflow",
-            "mood": "ok"
-        },
-        {
-            "date": "11/22/2025",
-            "concept": "Javascript automation",
-            "entry": "We talked about how to automate the creation of HTML elements using Javascript.",
-            "mood": "ok"
-        },
-        {
-            "date": "11/25/2025",
-            "concept": "Javascript Automation",
-            "entry": "Continued to work on the automatic creation of HTML elements through Javascript",
-            "mood": "tired"
-        }
-    ]
+  "entries": [
+    {
+      "id": 1,
+      "date": "11/21/2025",
+      "concept": "HTML, Javascript, Git",
+      "entry": "Presented first group project. Continued to practice github workflow",
+      "mood": "ok"
+    },
+    {
+      "id": 2,
+      "date": "11/22/2025",
+      "concept": "Javascript automation",
+      "entry": "We talked about how to automate the creation of HTML elements using Javascript.",
+      "mood": "ok"
+    },
+    {
+      "id": 3,
+      "date": "11/25/2025",
+      "concept": "Javascript Automation",
+      "entry": "Continued to work on the automatic creation of HTML elements through Javascript",
+      "mood": "tired"
+    },
+    {
+      "date": "12/11/2019",
+      "concept": "k",
+      "entry": "k",
+      "mood": "relieved",
+      "id": 4
+    }
+  ]
 }
