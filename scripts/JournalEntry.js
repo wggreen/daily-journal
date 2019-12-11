@@ -2,7 +2,7 @@
  *  Purpose: To render a single journal entry as an
  *           HTML representation of the data
  */
-const JournalEntryComponent = (entry) => {
+export const EntryHTML = (entry) => {
     return `
         <section id="entry--${entry.id}" class="journalEntry">
             <h3>${entry.date}</h3>
@@ -23,5 +23,3 @@ const JournalEntryComponent = (entry) => {
         </section>
     `
 }
-
-export default JournalEntryComponent

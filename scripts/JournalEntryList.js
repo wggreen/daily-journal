@@ -4,22 +4,23 @@
  *    there are items in the collection exposed by the
  *    data provider component
  */
-import { useJournalEntries } from "./JournalDataProvider.js"
-import JournalEntryComponent from "./JournalEntry.js"
+import { useEntries } from "./JournalDataProvider.js"
+import {EntryHTML} from "./JournalEntry.js"
 
-const EntryListComponent = () => {
+export const EntryListComponent = () => {
+
     // Use the journal entry data from the data provider component
-    const entries = useJournalEntries()
+    const entries = useEntries()
+
+    const render = (entriesCollection) => {
+
+        const contentTarget = document.querySelector("#entryLog")
+        let entryHTML = entriesCollection.map(note => EntryHTML(note)).join(" ")
+        contentTarget.innerHTML = `
+            ${entryHTML}
+        `
+    }
+    render(entries)
     // DOM reference to where all entries will be rendered
-    const entryLog = document.querySelector("#entryLog")
-    let journalHTML = ""
 
-    for (const entry of entries) {
-        let html = JournalEntryComponent(entry)
-        journalHTML += html
-       }
-
-    entryLog.innerHTML += journalHTML
-}
-
-export default EntryListComponent
+    }
