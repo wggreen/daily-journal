@@ -1,13 +1,6 @@
 {
   "entries": [
     {
-      "id": 1,
-      "date": "11/21/2025",
-      "concept": "HTML, Javascript, Git",
-      "entry": "Presented first group project. Continued to practice github workflow",
-      "mood": "ok"
-    },
-    {
       "id": 2,
       "date": "11/22/2025",
       "concept": "Javascript automation",

@@ -38,3 +38,10 @@ export const useEntries = () => {
     )
     return sortedByDate
 }
+
+export const deleteEntry = entryId => {
+    return fetch(`http://localhost:3000/entries/${entryId}`, {
+        method: "DELETE"
+    })
+        .then(getEntries)
+}

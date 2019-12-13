@@ -4,20 +4,23 @@
  */
 export const EntryHTML = (entry) => {
     return `
-        <section id="entry--${entry.id}" class="journalEntry">
-            <h3>${entry.date}</h3>
-            <div>
-                ${entry.entry}
+        <section class="journalEntry" id="entry--${entry.id}">
+            <h3 class="entry_date">${entry.date}</h3>
+            <div class="entry_info">
+                <div>
+                    <span class="entry_text">${entry.entry}</span>
+                </div>
+                <div>
+                    <span class="entry_concepts">Concepts covered: ${entry.concept}</span>
+                </div>
+                <div>
+                    <span class="entry_mood">Mood: ${entry.mood}</span>
+                </div>
             </div>
-            <div>
-                <span>Concepts covered</span>:
-                <br>
-                ${entry.concept}
-            </div>
-            <div>
-                <span>Mood:</span>:
-                <br>
-                ${entry.mood}
+            <div class="delete_button">
+                <button id="button--delete_${entry.id}">
+                    Delete entry
+                </button>
             </div>
             <hr></hr>
         </section>
