@@ -35,7 +35,39 @@ export const EntryListComponent = () => {
             ${entryHTML}
         `
     }
+
     render(entries)
+
+    eventHub.addEventListener("searchInitiated", searchEvent => {
+        let searchFilteredEntries = []
+        console.log(event.detail.searchTerm)
+        for (const entry of entries) {
+            for (const value of Object.values(entry)) {
+                if (value === event.detail.searchTerm) {
+                    searchFilteredEntries.push(entry)
+                }
+                if (typeof(value) === 'string') {
+                    if (value.includes(event.detail.searchTerm) && !(searchFilteredEntries.includes(entry))) {
+                        searchFilteredEntries.push(entry)
+                    }
+                }
+            }
+        }
+        render(searchFilteredEntries)
+    })
+
+    eventHub.addEventListener("change", changeEvent => {
+        if (changeEvent.target.id.startsWith("moodFilter")) {
+            const filteredEntries = entries.filter(
+                (individualEntry) => {
+                    if (individualEntry.mood === changeEvent.target.value) {
+                        return individualEntry
+                    }
+                }
+            )
+            render(filteredEntries)
+        }
+    })
     // DOM reference to where all entries will be rendered
 
-    }
+}

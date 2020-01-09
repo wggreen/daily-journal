@@ -2,6 +2,30 @@
  *  Purpose: To render a single journal entry as an
  *           HTML representation of the data
  */
+
+const eventHub = document.querySelector("#appContainer")
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("editEntry--")) {
+        const [notUsed, entryId] = clickEvent.target.id.split("--")
+
+        const entryIdParsed = parseInt(entryId, 10)
+
+        /*
+            Let all other components know that the user chose
+            to edit an entry, and attach data to the message
+            so that any listeners know which entry should be
+            edited.
+        */
+        const message = new CustomEvent("editButtonClicked", {
+            detail: {
+                editedEntryId: entryIdParsed
+            }
+        })
+        eventHub.dispatchEvent(message)
+    }
+})
+
 export const EntryHTML = (entry) => {
     return `
         <section class="journalEntry" id="entry--${entry.id}">
@@ -22,7 +46,13 @@ export const EntryHTML = (entry) => {
                     Delete entry
                 </button>
             </div>
+            <div class = "edit_button">
+                <button id="editEntry--${entry.id}">
+                    Edit entry
+                </button>
+                <input type="hidden" name="entryId" id="${entry.id}">
             <hr></hr>
         </section>
     `
 }
+

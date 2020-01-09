@@ -7,14 +7,11 @@ export const EntryFormComponent = () => {
     // Handle internal element click
     eventHub.addEventListener("click", clickEvent => {
         if (clickEvent.target.id === "record") {
-            console.log("save entry triggered")
-            debugger
-            let today = new Date().toLocaleDateString()
-
+            let journalDate = new Date(document.getElementById("journalDate").value).toLocaleDateString()
 
             // Make a new object representation of a note
             const newNote = {
-                date: today,
+                date: journalDate,
                 concept: document.getElementById("journalConcepts").value,
                 entry: document.getElementById("journalEntry").value,
                 mood: document.getElementById("journalMood").value
